@@ -133,8 +133,8 @@
         /* Fast Moving Glowing Bioluminescent Jellyfish */
         .real-jellyfish {
             position: absolute;
-            right: 12%;
-            bottom: 35%;
+            right: 8%;
+            bottom: 30%;
             width: 60px;
             height: 90px;
             pointer-events: none;
@@ -160,8 +160,8 @@
         }
         @keyframes floatRealJellyFast {
             0% { transform: translateY(0) translateX(0) scale(1); }
-            50% { transform: translateY(-50px) translateX(20px) scale(1.05); }
-            100% { transform: translateY(-90px) translateX(-15px) scale(0.98); }
+            50% { transform: translateY(-50px) translateX(15px) scale(1.05); }
+            100% { transform: translateY(-90px) translateX(-10px) scale(0.98); }
         }
         @keyframes pulseTentacles {
             0% { transform: skewX(-6deg) scaleY(0.9); }
@@ -171,8 +171,8 @@
         /* Second Smaller Glowing Jellyfish */
         .real-jellyfish-2 {
             position: absolute;
-            left: 20%;
-            top: 22%;
+            left: 10%;
+            top: 20%;
             width: 40px;
             height: 60px;
             pointer-events: none;
@@ -197,20 +197,20 @@
         }
         @keyframes floatJelly2 {
             0% { transform: translateY(0) translateX(0); }
-            50% { transform: translateY(40px) translateX(-30px); }
-            100% { transform: translateY(-30px) translateX(25px); }
+            50% { transform: translateY(40px) translateX(-20px); }
+            100% { transform: translateY(-30px) translateX(20px); }
         }
 
-        /* Professional Scuba Diver with Animated Assamese Name Tag (দৰ্পণ শুক্লা) */
+        /* Professional Scuba Diver with Responsive Positioning for Mobile & PC */
         .pro-diver {
             position: absolute;
-            left: 12%;
-            bottom: 38%;
+            left: 3%;
+            bottom: 42%;
             width: 75px;
             height: 45px;
             pointer-events: none;
-            z-index: -1;
-            animation: diverMotionFast 10s ease-in-out infinite;
+            z-index: 5; /* Kept safely above background layers so it's fully visible on mobile screens */
+            animation: diverMotionResponsive 10s ease-in-out infinite;
         }
         .pd-suit {
             position: absolute;
@@ -344,12 +344,28 @@
             }
         }
 
-        @keyframes diverMotionFast {
+        @keyframes diverMotionResponsive {
             0% { transform: translate(0, 0) rotate(0deg); }
-            40% { transform: translate(100px, -20px) rotate(8deg); }
-            50% { transform: translate(90px, -15px) rotate(-3deg); }
-            90% { transform: translate(-10px, 8px) rotate(-5deg); }
+            40% { transform: translate(65px, -15px) rotate(6deg); }
+            50% { transform: translate(55px, -10px) rotate(-2deg); }
+            90% { transform: translate(-5px, 5px) rotate(-4deg); }
             100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        /* Mobile specific adjustments to ensure diver stays fully in view */
+        @media (max-width: 640px) {
+            .pro-diver {
+                left: 2%;
+                bottom: 46%;
+                transform: scale(0.85);
+            }
+            @keyframes diverMotionResponsive {
+                0% { transform: translate(0, 0) rotate(0deg); }
+                40% { transform: translate(45px, -10px) rotate(5deg); }
+                50% { transform: translate(40px, -8px) rotate(-2deg); }
+                90% { transform: translate(-2px, 3px) rotate(-3deg); }
+                100% { transform: translate(0, 0) rotate(0deg); }
+            }
         }
 
         /* Transparent Liquid Apple Glass Box Icons */
@@ -362,6 +378,7 @@
             border-radius: 1.5rem;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
+            z-index: 10;
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -500,7 +517,7 @@
             <div class="rj2-tentacles"></div>
         </div>
 
-        <!-- Professional Scuba Diver with Animated Assamese Name Tag (দৰ্পণ শুক্লা) -->
+        <!-- Professional Scuba Diver (Darpan Sukla) with Responsive Mobile Positioning -->
         <div class="pro-diver">
             <div class="pd-name">দৰ্পণ শুক্লা</div>
             <div class="pd-tank"></div>
